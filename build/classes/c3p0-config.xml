@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+   <!-- 使用默认的配置读取连接池对象 -->
+   <default-config>
+       <!--  连接参数 -->
+       <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+
+      <property name="jdbcUrl">jdbc:mysql://localhost:3306/itcaststore?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
+      
+       <property name="user">root</property>
+       <property name="password">12345678</property>
+
+       <!-- 连接池参数 -->
+       <!--初始化连接数量-->
+       <property name="initialPoolSize">5</property>
+       <!--最大最小的连接数量-->
+       <property name="minPoolSize">10</property>
+        <property name="maxPoolSize">200</property>
+       <!--连接超时时间-->
+       <property name="checkoutTimeout">5000</property>
+   </default-config>
+
+   <named-config name="c3p0name">
+       <!--  连接参数 -->
+       <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/itcaststore?useSSL=false&amp;serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
+       <property name="user">root</property>
+       <property name="password">12345678</property>
+
+        <!-- 如果池中数据连接不够时一次增长多少个 -->
+        <property name="acquireIncrement">5</property>
+        <property name="initialPoolSize">20</property>
+        <property name="minPoolSize">10</property>
+        <property name="maxPoolSize">40</property>
+        <property name="maxStatements">0</property>
+        <property name="maxStatementsPerConnection">5</property>
+   </named-config>
+</c3p0-config>
